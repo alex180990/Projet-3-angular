@@ -1,0 +1,6 @@
+<div *ngIf="isAvisArray(); else elseBlock_1">
+    <app-avis *ngFor="let singleAvis of video.avis" [avis]="singleAvis"></app-avis>
+</div>
+<ng-template #elseBlock_1>
+    <p>{{ video.avis }}</p>
+</ng-template>

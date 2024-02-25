@@ -1,0 +1,46 @@
+<h1>Informations de le video :</h1>
+
+<img src="../../assets/images/vid1.jpg"  alt=""><br>
+
+id : {{video.id}}<br>
+nom : {{video.nom}}<br>
+description : {{video.description}}<br>
+description : {{video.categorie}}<br>
+date_publication : {{video.date_publication}}<br>
+duree : {{video.duree | formatDuree }}<br>
+
+<div *ngIf="video.nombre_vues === 0; else elseBlock1">
+    <p>nombre_vues : Aucun visionnement</p>
+</div>
+<ng-template #elseBlock1>
+    <div *ngIf="video.nombre_vues !== undefined" [matTooltip]="video.nombre_vues | i18nPlural: { '=0': 'Aucun visionnement', '=1': '1 visionnement', other: '# visionnements' }">
+        nombre_vues : {{ video.nombre_vues | formatNombre }}<br>
+    </div>
+</ng-template>
+
+score : {{video.score}}<br>
+sous_titres : {{video.sous_titres}}<br>
+
+<h2>Informations sur l'auteur</h2>
+
+nom_auteur: {{video.auteur.nom_auteur}}<br>
+utilisateur_auteur: {{video.auteur.utilisateur_auteur}}<br>
+verifie_auteur: {{video.auteur.verifie_auteur}}<br>
+description_auteur: {{video.auteur.description_auteur}}<br>
+
+<h3>Coordonnées de l'auteur</h3>
+
+<div>
+    courriel: {{video.auteur.courriel}}<br>
+    facebook: {{video.auteur.facebook}}<br>
+    instagram: {{video.auteur.instagram}}<br>
+    twitch: {{video.auteur.twitch}}<br>
+    site_web: {{video.auteur.site_web}}<br>
+</div>
+
+<h2>Avis</h2>
+    <div class="flex-container">
+        <button mat-fab color="primary" aria-label="Ajouter" (click)="openDialog()"><mat-icon>add</mat-icon></button>  
+    </div>
+    <app-avis-list></app-avis-list>
+<br>

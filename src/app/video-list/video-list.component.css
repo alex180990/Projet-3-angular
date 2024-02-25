@@ -1,0 +1,16 @@
+:host{
+    box-sizing: border-box;
+    align-items: center;
+    padding: 5px;
+    margin: 10px;
+}
+
+.flex-1{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.btn{
+    margin-left: 5px;
+    margin-right: 5px;
+}

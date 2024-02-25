@@ -1,0 +1,72 @@
+<form #videoForm="ngForm">
+
+    <div class="flex-1">
+        <mat-form-field>
+            <mat-label>Nom</mat-label>
+            <input matInput placeholder="Nom de la vidéo" required minlength="2" maxlength="50" name="nom"[(ngModel)]="video.nom" #nom="ngModel" (keyup.enter)="addVideo(videoForm)">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <input matInput placeholder="Description de la vidéo" required minlength="2" maxlength="50" name="description"[(ngModel)]="video.description" #description="ngModel" (keyup.enter)="addVideo(videoForm)">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Catégorie</mat-label>
+            <input matInput placeholder="Catégorie de la vidéo" required minlength="2" maxlength="50" name="categorie"[(ngModel)]="video.categorie" #categorie="ngModel" (keyup.enter)="addVideo(videoForm)">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Code</mat-label>
+            <input matInput placeholder="Code de la vidéo" required minlength="2" maxlength="50" name="code"[(ngModel)]="video.code" #code="ngModel" (keyup.enter)="addVideo(videoForm)">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Sous titres</mat-label>
+            <input matInput placeholder="Sous-titre de la vidéo" required minlength="2" maxlength="50" name="sous_titres"[(ngModel)]="video.sous_titres" #sous_titres="ngModel" (keyup.enter)="addVideo(videoForm)">
+        </mat-form-field>
+    </div>
+
+    <div class="flex-1">
+        <mat-form-field>
+            <mat-label>Nom de l'auteur</mat-label>
+            <input matInput placeholder="Nom de l'auteur" required minlength="2" maxlength="50" name="nom_auteur"[(ngModel)]="video.auteur.nom_auteur" #nom_auteur="ngModel" (keyup.enter)="addVideo(videoForm)">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Nom d'utilisateur</mat-label>
+            <input matInput placeholder="Nom d'utilisateur" required minlength="2" maxlength="50" name="utilisateur_auteur"[(ngModel)]="video.auteur.utilisateur_auteur" #utilisateur_auteur="ngModel" (keyup.enter)="addVideo(videoForm)">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Description de l'auteur</mat-label>
+            <input matInput placeholder="Description de l'auteur" required minlength="2" maxlength="50" name="description_auteur"[(ngModel)]="video.auteur.description_auteur" #description_auteur="ngModel" (keyup.enter)="addVideo(videoForm)">
+        </mat-form-field>
+    </div>
+
+    <div class="flex-1">
+        <mat-form-field>
+            <mat-label>Courriel</mat-label>
+            <input matInput placeholder="Courriel" minlength="2" maxlength="50" name="courriel"[(ngModel)]="video.auteur.courriel" #courriel="ngModel" (keyup.enter)="addVideo(videoForm)">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Facebook</mat-label>
+            <input matInput placeholder="Facebook" minlength="2" maxlength="50" name="facebook"[(ngModel)]="video.auteur.facebook" #facebook="ngModel" (keyup.enter)="addVideo(videoForm)">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Instagram</mat-label>
+            <input matInput placeholder="Instagram" minlength="2" maxlength="50" name="instagram"[(ngModel)]="video.auteur.instagram" #instagram="ngModel" (keyup.enter)="addVideo(videoForm)">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Twitch</mat-label>
+            <input matInput placeholder="Twitch" minlength="2" maxlength="50" name="twitch"[(ngModel)]="video.auteur.twitch" #twitch="ngModel" (keyup.enter)="addVideo(videoForm)">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Site web</mat-label>
+            <input matInput placeholder="Site web" minlength="2" maxlength="50" name="site_web"[(ngModel)]="video.auteur.site_web" #site_web="ngModel" (keyup.enter)="addVideo(videoForm)">
+        </mat-form-field>
+    </div>
+
+    <button mat-button mat-aria-label="Annuler" mat-dialog-close>Annuler</button>
+
+    <button *ngIf="video.id; else boutonAjout" mat-button mat-aria-label="Modifier" [disabled]="!videoForm.form.valid"(click)="updateVideo(videoForm)">Modifier</button>
+
+    <ng-template #boutonAjout>
+        <button mat-button mat-aria-label="Ajouter" [disabled]="!videoForm.form.valid"
+            (click)="addVideo(videoForm)">Créer</button>
+    </ng-template>
+</form>

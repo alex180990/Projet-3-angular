@@ -1,0 +1,13 @@
+<button class="btn" (click)="toggleAaCategory()">Afficher les vidéos AA</button>
+<button class="btn" (click)="toggleBbCategory()">Afficher les vidéos BB</button>
+<button class="btn" (click)="toggleCcCategory()">Afficher les vidéos CC</button>
+
+<div class="flex-1" *ngIf="videos; else elseBlock_1">
+  <a *ngFor="let video of videos| dynamicPipe: selectedPipe" [routerLink]= "['/video-detail', video.id]">
+    <app-video-mini [video]="video"></app-video-mini>
+  </a>
+</div>
+
+<ng-template #elseBlock_1>
+  <p>Aucune vidéo</p>
+</ng-template>

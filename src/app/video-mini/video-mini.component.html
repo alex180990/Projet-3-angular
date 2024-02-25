@@ -1,0 +1,26 @@
+<img src="../../assets/images/vid1.jpg" alt=""><br>
+
+<div>
+    <div class="infoLigne">
+        <p class="nom">Nom : </p><p class="spec">{{video.nom}}</p>
+    </div>
+    <div class="infoLigne">
+        <p class="nom">Description : </p><p class="spec">{{video.description}}</p>
+    </div>
+    <div class="infoLigne">
+        <p class="nom">Categorie : </p><p class="spec">{{video.categorie}}</p>
+    </div>
+    <div class="infoLigne">
+        <p class="nom">Sous titres : </p><p class="spec">{{video.sous_titres}}</p>
+    </div>
+    <br>
+    <div class="infoLigne">
+        <p class="nom">Durée : </p><p class="spec">{{video.duree | formatDuree }}</p>
+    </div>
+    <div class="infoLigne">
+        <p class="nom">Vues : </p><p class="spec">{{video.nombre_vues | formatNombre}}</p>
+    </div>
+    <div class="infoLigne">
+        <p class="nom">Score : </p><p class="spec">{{video.score}}</p>
+    </div>
+</div>

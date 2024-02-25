@@ -1,0 +1,18 @@
+<form #avisForm="ngForm">
+
+    <div class="flex-1">
+        <mat-form-field>
+            <mat-label>Note</mat-label>
+            <input matInput placeholder="Note de l'avis" required minlength="2" maxlength="50" name="note_avis"[(ngModel)]="avis.note_avis" #note_avis="ngModel" (keyup.enter)="addAvis(avisForm)">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Commentaire</mat-label>
+            <input matInput placeholder="Commentaire" required minlength="2" maxlength="50" name="commentaire_avis"[(ngModel)]="avis.commentaire_avis" #commentaire_avis="ngModel" (keyup.enter)="addAvis(avisForm)">
+        </mat-form-field>
+    </div>
+
+    <button mat-button mat-aria-label="Annuler" mat-dialog-close>Annuler</button>
+
+    <button mat-button mat-aria-label="Ajouter" [disabled]="!avisForm.form.valid"
+        (click)="addAvis(avisForm)">Créer</button>
+</form>
